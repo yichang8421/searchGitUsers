@@ -33,17 +33,17 @@ export default class App extends Component {
     }
 
     // 当勾选待办时，后台数据也响应更改
-    updateTodo = (todoObj) => {
+    updateTodo = (id, newDone) => {
         const {todoList} = this.state
-        const {id, done} = todoObj
 
-        todoList.map(item => {
-            if (item.id === id) {
-                item.done = item.done === done ? item.done : done
+        const newTodoList = todoList.map(todoObj => {
+            if (todoObj.id === id) {
+                return {...todoObj, done: newDone}
+            } else {
+                return todoObj
             }
-            return item
         })
 
-        this.setState({todoList})
+        this.setState({todoList: newTodoList})
     }
 }
