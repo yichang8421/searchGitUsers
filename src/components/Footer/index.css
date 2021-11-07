@@ -1,0 +1,12 @@
+.todolist > footer {
+    margin-top: -12px;
+}
+
+.todolist > footer > label{
+    line-height: 28px;
+    padding-left: 8px;
+}
+
+.todolist > footer > label > span {
+    margin-left: 16px;
+}

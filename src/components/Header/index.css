@@ -1,0 +1,7 @@
+.todolist > header > input{
+    width: 100%;
+    line-height: 28px;
+    padding-left: 8px;
+    outline: none;
+    margin-bottom: -6px;
+}
