@@ -18,19 +18,21 @@ export default class App extends Component {
             <div>
                 <div className={"todolist"}>
                     <Header addTodo={this.addTodo}/>
-                    <List updateTodo={this.updateTodo} todoList={this.state.todoList} {...this.state.todoList}/>
+                    <List updateTodo={this.updateTodo} todoList={this.state.todoList}/>
                     <Footer/>
                 </div>
             </div>
         )
     }
 
+    // 添加代办
     addTodo = (todoObj) => {
         const {todoList} = this.state
         const newTodoList = [todoObj, ...todoList]
         this.setState({todoList: newTodoList})
     }
 
+    // 当勾选待办时，后台数据也响应更改
     updateTodo = (todoObj) => {
         const {todoList} = this.state
         const {id, done} = todoObj
