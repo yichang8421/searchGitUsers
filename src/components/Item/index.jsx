@@ -10,7 +10,7 @@ export default class Item extends Component {
     }
 
     render() {
-        const {id,name} = this.props
+        const {id, name} = this.props
         const {flag, colorNumber} = this.state
         return (
             <li className={"item"}
@@ -18,7 +18,7 @@ export default class Item extends Component {
                 onMouseEnter={this.onHover(true)}
                 onMouseLeave={this.onHover(false)}>
                 <label onChange={this.handleChecked(id)}><input type="checkbox"/>{name}</label>
-                <button>删除</button>
+                <button onClick={() => this.handleDelete(id)}>删除</button>
             </li>
         )
     }
@@ -38,6 +38,14 @@ export default class Item extends Component {
         return (event) => {
             const {updateTodo} = this.props
             updateTodo(id, event.target.checked)
+        }
+    }
+
+    // 处理删除item事件
+    handleDelete = (id) => {
+        const {deleteTodo} = this.props
+        if (window.confirm("确认删除此待办事项吗？")) {
+            deleteTodo(id);
         }
     }
 }

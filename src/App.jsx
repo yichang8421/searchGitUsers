@@ -18,7 +18,7 @@ export default class App extends Component {
             <div>
                 <div className={"todolist"}>
                     <Header addTodo={this.addTodo}/>
-                    <List updateTodo={this.updateTodo} todoList={this.state.todoList}/>
+                    <List todoList={this.state.todoList} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo}/>
                     <Footer/>
                 </div>
             </div>
@@ -42,6 +42,17 @@ export default class App extends Component {
             } else {
                 return todoObj
             }
+        })
+
+        this.setState({todoList: newTodoList})
+    }
+
+    // 删除待办事项
+    deleteTodo = (id) => {
+        const {todoList} = this.state
+
+        const newTodoList = todoList.filter(todoObj => {
+            return todoObj.id !== id
         })
 
         this.setState({todoList: newTodoList})

@@ -11,17 +11,19 @@ export default class List extends Component {
 
     static propTypes = {
         todoList: PropTypes.array.isRequired,
-        updateTodo: PropTypes.func.isRequired
+        updateTodo: PropTypes.func.isRequired,
+        deleteTodo: PropTypes.func.isRequired
     }
 
     render() {
-        const {todoList, updateTodo} = this.props
+        const {todoList, updateTodo, deleteTodo} = this.props
         return (
             <ul className={"list"}>
                 {
                     todoList.map(todoList =>
                         <Item key={todoList.id}
                               updateTodo={updateTodo}
+                              deleteTodo={deleteTodo}
                               {...todoList}/>)
                 }
             </ul>
