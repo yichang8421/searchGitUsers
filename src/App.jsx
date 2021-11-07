@@ -7,8 +7,8 @@ import Footer from "./components/Footer";
 export default class App extends Component {
     state = {
         todoList: [
-            {id: nanoid(), name: "吃饭", done: true},
-            {id: nanoid(), name: "睡觉", done: true},
+            {id: nanoid(), name: "吃饭", done: false},
+            {id: nanoid(), name: "睡觉", done: false},
             {id: nanoid(), name: "打代码", done: false}
         ]
     }
@@ -18,7 +18,7 @@ export default class App extends Component {
             <div>
                 <div className={"todolist"}>
                     <Header addTodo={this.addTodo}/>
-                    <List todoList={this.state.todoList} {...this.state.todoList}/>
+                    <List updateTodo={this.updateTodo} todoList={this.state.todoList} {...this.state.todoList}/>
                     <Footer/>
                 </div>
             </div>
@@ -29,5 +29,19 @@ export default class App extends Component {
         const {todoList} = this.state
         const newTodoList = [todoObj, ...todoList]
         this.setState({todoList: newTodoList})
+    }
+
+    updateTodo = (todoObj) => {
+        const {todoList} = this.state
+        const {id, done} = todoObj
+
+        todoList.map(item => {
+            if (item.id === id) {
+                item.done = item.done === done ? item.done : done
+            }
+            return item
+        })
+
+        this.setState({todoList})
     }
 }
