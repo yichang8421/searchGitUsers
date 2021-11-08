@@ -19,7 +19,8 @@ export default class App extends Component {
                 <div className={"todolist"}>
                     <Header addTodo={this.addTodo}/>
                     <List todoList={this.state.todoList} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo}/>
-                    <Footer todoList={this.state.todoList} allChecked={this.allChecked}/>
+                    <Footer todoList={this.state.todoList} checkedAll={this.checkedAll}
+                            deleteAllDone={this.deleteAllDone}/>
                 </div>
             </div>
         )
@@ -58,13 +59,21 @@ export default class App extends Component {
         this.setState({todoList: newTodoList})
     }
 
-    allChecked = (isChecked) => {
+    checkedAll = (isChecked) => {
         const {todoList} = this.state
 
         const newTodoList = todoList.map(todoObj => {
             todoObj.done = todoObj.done === isChecked ? todoObj.done : isChecked
             return todoObj
         })
+
+        this.setState({todoList: newTodoList})
+    }
+
+    deleteAllDone = () => {
+        const {todoList} = this.state
+
+        const newTodoList = todoList.filter(todoObj => !todoObj.done)
 
         this.setState({todoList: newTodoList})
     }

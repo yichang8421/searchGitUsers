@@ -10,7 +10,7 @@ export default class Footer extends Component {
 
     static propTypes = {
         todoList: PropTypes.array.isRequired,
-        allChecked: PropTypes.func.isRequired
+        checkedAll: PropTypes.func.isRequired
     }
 
     render() {
@@ -24,13 +24,18 @@ export default class Footer extends Component {
                               onChange={this.onChecked}
                               checked={(countDone === countAll && countAll)}
                 /><span>已完成{countDone}/全部{countAll}</span></label>
-                <button>清除已完成任务</button>
+                <button onClick={this.onDeleteAllDone}>清除已完成任务</button>
             </footer>
         )
     }
 
     onChecked = (event) => {
-        const {allChecked} = this.props
-        allChecked(event.target.checked)
+        const {checkedAll} = this.props
+        checkedAll(event.target.checked)
+    }
+
+    onDeleteAllDone = () => {
+        const {deleteAllDone} = this.props
+        deleteAllDone()
     }
 }

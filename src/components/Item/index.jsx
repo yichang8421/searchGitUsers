@@ -17,7 +17,7 @@ export default class Item extends Component {
                 style={{backgroundColor: flag ? this.colorList[colorNumber] : ""}}
                 onMouseEnter={this.onHover(true)}
                 onMouseLeave={this.onHover(false)}>
-                <label onChange={this.handleChecked(id)}><input type="checkbox" checked={done}/>{name}</label>
+                <label><input type="checkbox" checked={done} onChange={this.handleChecked(id)}/>{name}</label>
                 <button onClick={() => this.handleDelete(id)}>删除</button>
             </li>
         )
