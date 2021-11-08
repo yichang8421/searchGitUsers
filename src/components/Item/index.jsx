@@ -10,14 +10,14 @@ export default class Item extends Component {
     }
 
     render() {
-        const {id, name} = this.props
+        const {id, name, done} = this.props
         const {flag, colorNumber} = this.state
         return (
             <li className={"item"}
                 style={{backgroundColor: flag ? this.colorList[colorNumber] : ""}}
                 onMouseEnter={this.onHover(true)}
                 onMouseLeave={this.onHover(false)}>
-                <label onChange={this.handleChecked(id)}><input type="checkbox"/>{name}</label>
+                <label onChange={this.handleChecked(id)}><input type="checkbox" checked={done}/>{name}</label>
                 <button onClick={() => this.handleDelete(id)}>删除</button>
             </li>
         )
