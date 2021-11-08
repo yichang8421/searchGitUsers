@@ -13,6 +13,14 @@ export default class App extends Component {
         ]
     }
 
+    componentDidUpdate() {
+        window.localStorage.setItem("todoList", JSON.stringify(this.state));
+    }
+
+    componentDidMount() {
+        this.setState(JSON.parse(window.localStorage.getItem("todoList") || "[]"));
+    }
+
     render() {
         return (
             <div>
