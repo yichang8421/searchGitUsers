@@ -10,7 +10,8 @@ export default class Header extends Component {
     }
 
     static propTypes = {
-        addTodo: PropTypes.func.isRequired,
+        todoList: PropTypes.array.isRequired,
+        addTodo: PropTypes.func.isRequired
     }
 
     render() {
@@ -23,16 +24,25 @@ export default class Header extends Component {
 
     handleKeyUp = (event) => {
         const {target, keyCode} = event
-        const {addTodo} = this.props
+        const {todoList, addTodo} = this.props
 
         // 当点击回车键时
         if (keyCode === 13) {
             // 当输入为空时
-            if (!target.value.trim("")) {
+            if (!target.value.trim()) {
                 alert("输入不能为空")
                 target.value = ""
                 return
             }
+
+            for (let i = 0; i < todoList.length; i++) {
+                if (todoList[i].name === target.value.replace(/\s*/g, "")) {
+                    alert("此待办已添加过了，不用重复添加")
+                    target.value = ""
+                    return
+                }
+            }
+
             const todoObj = {id: nanoid(), name: target.value, done: false}
             addTodo(todoObj)
 

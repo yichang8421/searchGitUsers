@@ -10,7 +10,8 @@ export default class Footer extends Component {
 
     static propTypes = {
         todoList: PropTypes.array.isRequired,
-        checkedAll: PropTypes.func.isRequired
+        checkedAll: PropTypes.func.isRequired,
+        deleteAllDone: PropTypes.func.isRequired
     }
 
     render() {

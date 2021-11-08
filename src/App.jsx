@@ -25,7 +25,7 @@ export default class App extends Component {
         return (
             <div>
                 <div className={"todolist"}>
-                    <Header addTodo={this.addTodo}/>
+                    <Header todoList={this.state.todoList} addTodo={this.addTodo}/>
                     <List todoList={this.state.todoList} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo}/>
                     <Footer todoList={this.state.todoList} checkedAll={this.checkedAll}
                             deleteAllDone={this.deleteAllDone}/>
