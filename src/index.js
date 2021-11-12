@@ -1,11 +1,8 @@
-import React from "react"
-import ReactDOM from "react-dom"
+import React from "react";
+import ReactDom from "react-dom";
 import App from "./App";
-import "./style/mixin.css"
-import "./App.css"
 
-ReactDOM.render(
+ReactDom.render(
     <React.StrictMode>
         <App/>
-    </React.StrictMode>
-    ,window.root)
+    </React.StrictMode>, window.root);

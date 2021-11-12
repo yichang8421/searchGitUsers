@@ -1,0 +1,32 @@
+.usersList {
+    width: 75vw;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid red;
+    column-count: 3;
+    column-gap: 0;
+}
+
+.usersList > .item {
+    padding: 2px;
+    transition: opacity 0.4s;
+}
+
+.usersList:hover > .item {
+    opacity: 0.7;
+}
+
+.usersList:hover > .item:hover {
+    opacity: 1;
+}
+
+.usersList > .item > img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.usersList > .item > .userName {
+    font-weight: bold;
+    text-align: center;
+}

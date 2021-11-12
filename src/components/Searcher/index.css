@@ -1,0 +1,49 @@
+.searcher {
+    width: 75vw;
+    height: 20vh;
+    background: #eeeeee;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 64px;
+}
+
+.searcher > h1 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.searcher > .ipt > input {
+    width: 40%;
+    line-height: 24px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 4px;
+    border: none;
+}
+
+.searcher > .ipt > input:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 1px black;
+}
+
+.searcher > .ipt > button {
+    line-height: 24px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-weight: bold;
+    background: #21a1f1;
+    border: none;
+    border-radius: 4px;
+    color: rgb(185, 236, 205);
+}
+
+.searcher > .ipt > button:hover {
+    box-shadow: 1px 1px 1px black;
+}
+
+.searcher > .ipt > button:active {
+    box-shadow: inset 1px 1px 1px black, inset -1px -1px 1px black;
+}
