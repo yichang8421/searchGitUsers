@@ -1,19 +1,30 @@
-.usersList {
-    width: 75vw;
+.usersWrapper {
+    max-width: 864px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid red;
-    column-count: 3;
-    column-gap: 0;
+}
+
+.usersList {
+    display:flex;
+    flex-wrap: wrap;
+    /*justify-content: start;*/
+    margin-top: 1em;
+    margin-bottom: 2em;
 }
 
 .usersList > .item {
+    width: 25%;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 2px;
     transition: opacity 0.4s;
 }
 
 .usersList:hover > .item {
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 .usersList:hover > .item:hover {
@@ -21,12 +32,11 @@
 }
 
 .usersList > .item > img {
-    display: block;
-    width: 100%;
-    height: auto;
+    width:50%
 }
 
 .usersList > .item > .userName {
+    font-size:50%;
     font-weight: bold;
     text-align: center;
 }

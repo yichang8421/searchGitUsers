@@ -1,9 +1,9 @@
 .searcher {
-    width: 75vw;
-    height: 20vh;
-    background: #eeeeee;
+    max-width: 864px;
     margin-left: auto;
     margin-right: auto;
+    height: 20vh;
+    background: #eeeeee;
     display: flex;
     flex-direction: column;
     justify-content: center;

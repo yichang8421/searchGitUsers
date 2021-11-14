@@ -3,33 +3,23 @@ import "./index.css";
 
 export default class UsersList extends Component {
     render() {
+        const users = this.props.users;
         return (
-            <div className="usersList">
-                <a href="#" className="item">
-                    <img src="https://picsum.photos/360/460?random=5" alt="GituserName"/>
-                    <div className="userName">GituserName</div>
-                </a>
-                <a href="#" className="item">
-                    <img src="https://picsum.photos/360/460?random=6" alt="GituserName"/>
-                    <div className="userName">GituserName</div>
-                </a>
-                <a href="#" className="item">
-                    <img src="https://picsum.photos/360/460?random=1" alt="GituserName"/>
-                    <div className="userName">GituserName</div>
-                </a>
-                <a href="#" className="item">
-                    <img src="https://picsum.photos/360/460?random=2" alt="GituserName"/>
-                    <div className="userName">GituserName</div>
-                </a>
-                <a href="#" className="item">
-                    <img src="https://picsum.photos/360/460?random=3" alt="GituserName"/>
-                    <div className="userName">GituserName</div>
-                </a>
-                <a href="#" className="item">
-                    <img src="https://picsum.photos/360/460?random=4" alt="GituserName"/>
-                    <div className="userName">GituserName</div>
-                </a>
+            <div className="usersWrapper">
+                <div className="usersList">
+                    {
+                        users.map(userObj => {
+                            return (
+                                <a href={userObj.html_url} className="item" key={userObj.id}>
+                                    <img src={userObj.avatar_url} alt={userObj.login}/>
+                                    <div className="userName">{userObj.login}</div>
+                                </a>
+                            );
+                        })
+                    }
+                </div>
             </div>
-        );
+        )
+            ;
     }
 }
