@@ -16,14 +16,19 @@ export default class Searcher extends Component {
     }
 
     getKeywords = () => {
-        const {props: {saveUsers}} = this;
+        const {props: {updateAppState}} = this;
         const {keywordsElement: {value}} = this;
+
+        //刚开始时，通知app更新状态
+        updateAppState({isStart: false, isLoading: true});
+
         axios.get(`http://localhost:3000/api1/search/users?q=${value}`).then(
             response => {
-                // console.log(response.data);
-                saveUsers(response.data.items);
+                updateAppState({isLoading: false, users: response.data.items});
             },
-            error => console.log("失败了", error)
+            error => {
+                console.log("出错了", updateAppState({isLoading: false, err: error.message}));
+            }
         );
     };
 }
